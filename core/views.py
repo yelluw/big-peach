@@ -14,11 +14,11 @@ class IndexView(FormView):
     form_class = MemberForm
     template_name = 'index.html'
     success_url = reverse_lazy('index')
-    
+
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         # show hide membership form
-        context['is_member'] = self.request.session.get('is_member', False) 
+        context['is_member'] = self.request.session.get('is_member', False)
         return context
 
     def form_valid(self, form):

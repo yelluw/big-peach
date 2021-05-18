@@ -2,7 +2,7 @@ from django.forms import ModelForm
 from django import forms
 from django.contrib.auth.models import User
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Div
+from crispy_forms.layout import Layout, Div
 from crispy_forms.bootstrap import FieldWithButtons, StrictButton
 
 
@@ -17,11 +17,10 @@ class MemberForm(ModelForm):
         )
         super(MemberForm, self).__init__(*args, **kwargs)
 
-
     class Meta:
         model = User
         fields = ('email',)
-        
+
     def clean_email(self):
         email = self.cleaned_data['email']
         user = User.objects.filter(email=email)
