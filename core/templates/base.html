@@ -21,66 +21,15 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
 
-			body {
-		    font-family: 'Open Sans', sans-serif;
-				padding-top: 5rem;
-			}
+<style>
+{% block inject_css %}{% endblock%}
+</style>
 
-      main { min-height:100vh; }
-
-      footer {background-color:#f5f5f5;}
-
-			{% block page_css %}{% endblock %}
-    </style>
   </head>
   <body>
-    <header>
 
-<nav class="navbar navbar-light navbar-expand-md fixed-top" style="background-color: #ffffff;">
-  <a class="navbar-brand" href="{% url 'index' %}">{% include "logo.html" %}</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav ml-auto">
-
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'member_create' %}" title="Become a Member">Become a Member</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'blog_post_list' %}">Blog</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'events' %}">Events</a>
-      </li>
-  
-      <li class="nav-item">
-        <a class="nav-link" href="https://github.com/pyatl">Github</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="https://discord.gg/5UBnR3P" title="Twitter">Discord</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="https://twitter.com/pyatl" title="Twitter">Twitter</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="https://www.meetup.com/python-atlanta/" title="Meetup">Meetup</a>
-      </li>
-
-    </ul>
-  </div>
-</nav>
-
-</header>
 
 <main role="main">
   {% for message in messages %}
@@ -93,20 +42,8 @@
   {% endfor %}
 
 
-{% block body %}{% endblock %}
+  {% block content %}{% endblock %}
 </main>
-
-<footer>
-  <div class="container pt-4 pb-3">
-    <p><a href="{% url 'about' %}">About</a></p>
-    <p><a href="{% url 'terms' %}">Terms of Service</a></p>
-    <p><a href="{% url 'coc' %}">Code of Conduct</a></p>
-
-    {% block footer %}{% endblock %}
-    <p class="small">&copy;<span id="year"></span> PyATL and respective license and copyright holders.</p>
-
-	</div>
-</footer>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
